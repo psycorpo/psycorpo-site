@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Le prompt PsyCorpo pour repérer ses formations Parcoursup plausibles avec l'IA de son choix.">
+<title>Prompt Parcoursup PsyCorpo</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap">
+<style>
+/* Layout : colonne unique de lecture, en-tête marque, 3 étapes, prompt à copier, mention de réserve */
+:root {
+  --bg: #F6F6F4; --surface: #FFFFFF; --ink: #232323; --muted: #55524E;
+  --accent: #E8772A; --accent-text: #B85A17; --line: #E4E1DC; --code-bg: #232323; --code-fg: #F6F6F4;
+  --font: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1C1C1C; --surface: #262626; --ink: #F3F1EE; --muted: #BDB8B2;
+  --accent: #E8772A; --accent-text: #F2934F; --line: #383634; --code-bg: #121212; --code-fg: #F3F1EE; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1C1C1C; --surface: #262626; --ink: #F3F1EE; --muted: #BDB8B2;
+  --accent: #E8772A; --accent-text: #F2934F; --line: #383634; --code-bg: #121212; --code-fg: #F3F1EE; color-scheme: dark }
+
+html { color-scheme: light; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-inline: 20px; padding-block: 32px 56px; display: flex; flex-direction: column; gap: 36px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.logo { background: #FFFFFF; border-radius: 12px; padding: 8px 12px; display: inline-flex; }
+.logo img { width: 160px; height: auto; display: block; }
+.handle { font-weight: 600; color: var(--muted); font-size: 14px; }
+.eyebrow { font-weight: 800; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-text); margin: 0 0 12px; }
+h1 { font-weight: 800; font-size: clamp(32px, 7vw, 52px); line-height: 1.04; letter-spacing: -1px; margin: 0; text-wrap: balance; }
+h1 .mark { box-shadow: inset 0 -0.28em var(--accent); }
+.lede { margin: 16px 0 0; font-size: 18px; color: var(--muted); max-width: 62ch; }
+h2 { font-weight: 800; font-size: 22px; margin: 0 0 16px; }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.steps li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+.num { width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: #232323; font-weight: 800; font-size: 20px; display: grid; place-items: center; }
+.steps b { display: block; font-size: 17px; margin-bottom: 2px; }
+.steps p { margin: 0; color: var(--muted); }
+.ias { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.ias a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14px; border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; }
+.ias a:hover, .ias a:focus-visible { background: var(--ink); color: var(--bg); }
+.tip { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+.tip p { margin: 0; }
+.prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.prompt-head h2 { margin: 0; }
+button.copy { font: inherit; font-weight: 800; font-size: 16px; background: var(--accent); color: #232323; border: 0; border-radius: 999px; padding: 12px 22px; cursor: pointer; min-height: 44px; }
+button.copy:hover { filter: brightness(1.05); }
+button.copy:focus-visible, .ias a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.code { background: var(--code-bg); color: var(--code-fg); border-radius: 18px; overflow-x: auto; }
+pre { margin: 0; padding: 22px; font-family: var(--mono); font-size: 13.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+.status { font-size: 14px; font-weight: 600; color: var(--accent-text); min-height: 1.4em; margin: 10px 0 0; }
+.bottom-copy { display: flex; justify-content: center; margin-top: 16px; }
+footer { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--muted); }
+footer strong { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <span class="logo"><img src="data:image/png;base64,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" alt="PsyCorpo, orientation, carrière, formation"></span>
+    <span class="handle">@psy.corpo</span>
+  </header>
+
+  <section>
+    <p class="eyebrow">Parcoursup 2027 · Élèves &amp; parents</p>
+    <h1>Repérez vos formations <span class="mark">plausibles</span>.</h1>
+    <p class="lede">Un prompt, c'est un message tout prêt que l'on copie-colle dans une intelligence artificielle. Celle-ci répond comme dans une conversation. Aucune compétence technique n'est nécessaire.</p>
+  </section>
+
+  <section aria-labelledby="mode">
+    <h2 id="mode">Mode d'emploi</h2>
+    <ol class="steps">
+      <li><span class="num" aria-hidden="true">1</span><div><b>Copiez le prompt</b><p>Un clic sur le bouton orange plus bas, et le texte est copié.</p></div></li>
+      <li><span class="num" aria-hidden="true">2</span><div><b>Ouvrez une IA</b><p>La version gratuite suffit.</p>
+        <div class="ias">
+          <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a>
+          <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>
+          <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a>
+          <a href="https://chat.mistral.ai" target="_blank" rel="noopener">Le Chat (Mistral)</a>
+          <a href="https://copilot.microsoft.com" target="_blank" rel="noopener">Copilot</a>
+        </div></div></li>
+      <li><span class="num" aria-hidden="true">3</span><div><b>Collez, complétez, envoyez</b><p>Remplacez tout ce qui est entre [crochets] par les vraies informations, supprimez les choix qui ne vous concernent pas, puis envoyez.</p></div></li>
+    </ol>
+  </section>
+
+  <div class="tip">
+    <p><strong>À faire ensemble.</strong> L'élève remplit son profil et ses envies, les parents l'aident à compléter et relisent les réponses avec lui. Chacun son rôle, un seul et même projet.</p>
+  </div>
+
+  <section aria-labelledby="leprompt">
+    <div class="prompt-head">
+      <h2 id="leprompt">Le prompt</h2>
+      <button class="copy" type="button" id="copy-top">Copier le prompt</button>
+    </div>
+    <div class="code"><pre id="prompt">Tu es un conseiller d'orientation expert de Parcoursup. À partir de mon profil ci-dessous, dresse la liste des formations et établissements où mes chances d'admission sont les meilleures, en tenant compte des critères de recrutement propres à chaque formation.
+
+=== MON PROFIL ===
+Bac : [général / technologique / professionnel]
+
+Série (si bac technologique) : [STMG / STI2D / STL / ST2S / STD2A / STHR / S2TMD / STAV]
+Intitulé (si bac professionnel) : [ex : bac pro Commerce et vente, bac pro AGORA, bac pro ASSP…]
+
+Spécialités de terminale (garde les 2 qui te concernent) :
+- Si bac général : [Mathématiques / Physique-chimie / SVT / SES / HGGSP / HLP / LLCER (langue : …) / LLCA / NSI / Sciences de l'ingénieur / Arts (arts plastiques, cinéma-audiovisuel, danse, histoire des arts, musique, théâtre, arts du cirque) / EPPCS / Biologie-écologie]
+- Si bac STMG : [Droit et économie + Management, sciences de gestion et numérique, option : Gestion et finance / Mercatique / Ressources humaines et communication / Systèmes d'information de gestion]
+- Si bac STI2D : [Physique-chimie et mathématiques + Ingénierie, innovation et développement durable, option : Architecture et construction / Énergies et environnement / Innovation technologique et éco-conception / Systèmes d'information et numérique]
+- Si bac STL : [Physique-chimie et mathématiques + Biochimie-biologie-biotechnologie / Sciences physiques et chimiques en laboratoire]
+- Si bac ST2S : [Chimie, biologie et physiopathologie humaines + Sciences et techniques sanitaires et sociales]
+- Si bac STD2A : [Analyse et méthodes en design + Conception et création en design et métiers d'art]
+- Si bac STHR : [Économie-gestion hôtelière + Sciences et technologies culinaires et des services]
+- Si bac S2TMD : [Économie, droit et environnement du spectacle vivant + Culture et sciences chorégraphiques / musicales / théâtrales]
+- Si bac STAV : [Gestion des ressources et de l'alimentation + Territoires et technologie]
+
+Spécialité abandonnée en première (bac général uniquement) : [la même liste que ci-dessus pour le bac général]
+
+Options : [aucune / Mathématiques complémentaires / Mathématiques expertes / DGEMC (droit et grands enjeux du monde contemporain) / LV3 / Latin / Grec / Arts / EPS / Section européenne ou internationale / autre : …]
+
+Moyenne générale en première : [ex : 13,5]
+Moyenne générale en terminale (1er trimestre) : [ex : 14]
+Moyennes par spécialité : [ex : Maths 12, SES 16]
+Points forts ou faibles notables : [ex : très bon en anglais, faible en physique]
+Lycée : [nom, ville / public ou privé / niveau ressenti : exigeant, moyen ou en difficulté]
+Académie de résidence : [ex : Lyon]
+Mobilité : [je reste dans ma ville / ma région / partout en France]
+Boursier : [oui / non / je ne sais pas]
+Budget logement : [oui / limité / non]
+Ouvert à l'apprentissage : [oui / non / je ne sais pas]
+Domaines qui m'attirent : [ex : psychologie, commerce, social, santé, sport, art, numérique…]
+Métiers envisagés : [ex : psychologue, RH… ou « je ne sais pas encore »]
+Activités et engagements : [ex : bénévolat, sport, job d'été, délégué de classe, projet perso…]
+
+=== CE QUE TU DOIS FAIRE ===
+1. Analyse mon profil en 5 lignes : mes atouts, mes faiblesses et la cohérence entre mes spécialités et mes envies.
+2. Propose 3 types de formations adaptés (ex : licence, BUT, BTS, classe prépa, école post-bac), avec pour chacun la raison pour laquelle il me correspond ou non.
+3. Liste 12 à 15 formations précises dans des établissements réels, sous forme de tableau :
+   | Formation | Établissement | Ville | Sélective ? | Dans mon secteur ? | Spécialités attendues | Mes chances (élevées / moyennes / faibles) | Pourquoi |
+4. Classe-les en 3 groupes :
+   - AMBITION (3 à 4 formations)
+   - CŒUR (5 à 7 formations)
+   - SÉCURITÉ (au moins 3 formations, de préférence dans mon secteur géographique)
+5. Pour chaque formation, indique le critère qui joue le plus en ma faveur ou en ma défaveur : zone géographique, spécialités, notes, quotas (boursiers, bac techno ou pro) ou type de lycée.
+6. Donne-moi 3 actions concrètes pour améliorer mes chances d'ici la fin des vœux.
+
+=== RÈGLES ===
+- Ne cite que des établissements et des formations qui existent réellement. Si tu n'es pas sûr d'une information (taux d'accès, nombre de places, critères), écris « à vérifier » au lieu d'inventer.
+- Si tu as accès à Internet, appuie-toi sur les fiches formations de parcoursup.fr et donne le lien de chaque fiche. Si tu ne peux pas donner le lien exact, dis-le.
+- Ne me promets jamais une admission : parle uniquement de chances.
+- Si une information de mon profil est manquante ou incohérente, signale-le avant de répondre.
+- Termine par un rappel : « Vérifie chaque formation sur sa fiche Parcoursup (taux d'accès, critères d'examen des vœux, profil des admis de l'an dernier) avant de valider tes vœux. »</pre></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <div class="bottom-copy"><button class="copy" type="button" id="copy-bottom">Copier le prompt</button></div>
+  </section>
+
+  <footer>
+    <span><strong>@psy.corpo</strong> · <a href="/" style="color:inherit">psycorpo.netlify.app</a></span>
+    <span>Réponses de l'IA et informations données à titre indicatif, sous réserve de vérification sur parcoursup.gouv.fr. L'IA peut se tromper : chaque formation se vérifie sur sa fiche officielle avant de valider les vœux.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var pre = document.getElementById('prompt');
+  var status = document.getElementById('status');
+  function selectPrompt() {
+    var r = document.createRange(); r.selectNodeContents(pre);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  function done(msg) { status.textContent = msg; }
+  function copy() {
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        done('Prompt copié. Collez-le dans l’IA de votre choix.');
+      }).catch(function () {
+        selectPrompt(); done('Le texte est sélectionné : faites Copier (Ctrl+C ou appui long).');
+      });
+    } else {
+      selectPrompt(); done('Le texte est sélectionné : faites Copier (Ctrl+C ou appui long).');
+    }
+  }
+  document.getElementById('copy-top').addEventListener('click', copy);
+  document.getElementById('copy-bottom').addEventListener('click', copy);
+})();
+</script>
+
+</body>
+</html>
