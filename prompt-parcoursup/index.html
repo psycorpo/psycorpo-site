@@ -55,6 +55,13 @@ pre { margin: 0; padding: 22px; font-family: var(--mono); font-size: 13.5px; lin
 .bottom-copy { display: flex; justify-content: center; margin-top: 16px; }
 footer { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--muted); }
 footer strong { color: var(--ink); }
+.rdv { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 18px; padding: 22px 20px; }
+.rdv h2 { margin: 0 0 10px; }
+.rdv p { margin: 0 0 16px; color: var(--muted); }
+.rdv-btn { display: inline-block; font-weight: 800; font-size: 16px; background: var(--accent); color: #232323; text-decoration: none; border-radius: 999px; padding: 12px 22px; min-height: 44px; box-sizing: border-box; }
+.rdv-btn:hover { filter: brightness(1.05); }
+.rdv-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.rdv .rdv-note { margin: 12px 0 0; font-size: 14px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -157,8 +164,15 @@ Activités et engagements : [ex : bénévolat, sport, job d'été, délégué de
     <div class="bottom-copy"><button class="copy" type="button" id="copy-bottom">Copier le prompt</button></div>
   </section>
 
+  <section class="rdv" aria-labelledby="rdv-titre">
+    <h2 id="rdv-titre">L'IA vous donne des pistes. On les vérifie ensemble ?</h2>
+    <p>Une liste de formations ne dit pas si elle correspond vraiment à votre enfant. Pendant un rendez-vous d'exploration offert, on confronte ces pistes à ses envies et à ses résultats, et il repart avec un plan d'action.</p>
+    <a class="rdv-btn" href="/exploration/">Réserver une exploration offerte →</a>
+    <p class="rdv-note">Justine Ancel, psychologue du travail et de l'orientation · Sans engagement · En visio</p>
+  </section>
+
   <footer>
-    <span><strong>@psy.corpo</strong> · <a href="/" style="color:inherit">psycorpo.netlify.app</a></span>
+    <span><strong>@psy.corpo</strong> · <a href="/" style="color:inherit">psycorpo.netlify.app</a> · <a href="/exploration/" style="color:inherit">Être accompagné pour Parcoursup</a></span>
     <span>Réponses de l'IA et informations données à titre indicatif, sous réserve de vérification sur parcoursup.gouv.fr. L'IA peut se tromper : chaque formation se vérifie sur sa fiche officielle avant de valider les vœux.</span>
   </footer>
 </div>
