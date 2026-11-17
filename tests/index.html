@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Deux tests offerts pour faire un premier pas : un test de personnalité (ennéagramme) et un pré-test formation, proposés par Justine Ancel, psychologue du travail et de l'orientation.">
+<meta name="description" content="Quatre questionnaires offerts, sans inscription, avec résultats immédiats : activités préférées, personnalité professionnelle, étape de votre parcours professionnel et autodiagnostic RH pour dirigeants de TPE et PME. Par Justine Ancel, psychologue du travail et de l'orientation.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}.hero .wrap.hero-solo { grid-template-columns: 1fr; padding-block: 32px 56px; }
 .hero-solo .hero-text { max-width: 44em; }
 .cards.two { grid-template-columns: repeat(2, 1fr); }
 .hero-cta a.soft { flex-basis: 100%; font-weight: 600; color: var(--ink); text-underline-offset: 4px; }
 @media (max-width: 860px) { .cards.two { grid-template-columns: 1fr; } }
-</style><title>Tests offerts · Psycorpo · Justine Ancel, psychologue du travail et de l'orientation</title>
+</style><title>Questionnaires offerts · Psycorpo · Justine Ancel, psychologue du travail et de l'orientation</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -166,6 +166,7 @@ footer .wrap { padding-block: 24px; font-size: 0.9rem; color: var(--muted); disp
 @media (max-width: 860px) { .cards.two { grid-template-columns: 1fr; } }
 </style>
 
+<link rel="stylesheet" href="/assets/quiz.css">
 </head>
 <body>
 <header>
@@ -175,55 +176,65 @@ footer .wrap { padding-block: 24px; font-size: 0.9rem; color: var(--muted); disp
   </div>
 </header>
 
+
 <main>
   <section class="hero">
     <div class="wrap hero-solo">
       <div class="hero-text">
-        <p class="eyebrow">Tests offerts · Sans rendez-vous</p>
-        <h1>Commencez par un test, à votre rythme.</h1>
-        <p class="lead">Besoin de temps avant de prendre rendez-vous ? Aucun souci. Voici deux tests offerts pour faire un premier pas, en autonomie, quand vous voulez.</p>
+        <p class="eyebrow">Questionnaires offerts · Sans inscription</p>
+        <h1>Faites le point, à votre rythme.</h1>
+        <p class="lead">Besoin de temps avant de prendre rendez-vous ? Aucun souci. Choisissez un ou plusieurs questionnaires, répondez en quelques minutes et découvrez vos résultats tout de suite, sur cette page.</p>
       </div>
     </div>
   </section>
 
-  <section class="paths" aria-labelledby="tests-title">
+  <section class="paths" aria-labelledby="tests-title" id="choisir">
     <div class="wrap">
       <div class="paths-head">
-        <p class="eyebrow">Choisissez votre test</p>
-        <h2 id="tests-title">Deux tests, deux usages</h2>
+        <p class="eyebrow">Choisissez un ou plusieurs questionnaires</p>
+        <h2 id="tests-title">Quatre questionnaires, quatre questions</h2>
       </div>
-      <div class="cards two">
+      <div class="cards four">
         <article class="card">
-          <p class="who">Pour mieux vous connaître</p>
-          <p class="quote">Le test de personnalité</p>
-          <p class="fine" style="font-size:1rem">Basé sur l'ennéagramme, il éclaire votre façon de fonctionner : ce qui vous motive, vos ressources, votre manière d'être avec les autres.</p>
-          <ul>
-            <li>Pour les salariés, indépendants, demandeurs d'emploi</li>
-            <li>Utile si vous vous demandez « qu'est-ce qui me correspond ? »</li>
-            <li>Vous recevez vos résultats par email</li>
-          </ul>
-          <div class="actions">
-            <a class="btn btn-main" href="https://personnalite.18h01.fr/?vdi=1490" target="_blank" rel="noopener">Faire le test de personnalité</a>
-          </div>
-          <p class="fine">Le test s'ouvre dans un nouvel onglet. Une fois terminé, revenez sur cette page pour <a href="#decrypter">réserver le décryptage offert de vos résultats</a>.</p>
+          <p class="who">Activités préférées</p>
+          <p class="quote">Quels métiers sont faits pour vous ?</p>
+          <p class="fine" style="font-size:1rem">Pour chaque activité, dites si elle vous plairait. Vous découvrez les activités que vous préférez réaliser et des exemples de métiers.</p>
+          <p class="meta">36 questions · environ 6 minutes</p>
+          <div class="actions"><button type="button" class="btn btn-main" data-quiz="activites">Découvrir mes activités préférées</button></div>
         </article>
+        <article class="card">
+          <p class="who">Personnalité professionnelle</p>
+          <p class="quote">Qu'est-ce qui vous motive vraiment ?</p>
+          <p class="fine" style="font-size:1rem">Découvrez votre profil dominant parmi neuf profils : vos motivations, vos forces au travail, vos points de vigilance.</p>
+          <p class="meta">36 questions · environ 6 minutes</p>
+          <div class="actions"><button type="button" class="btn btn-main" data-quiz="personnalite">Faire le questionnaire de personnalité</button></div>
+        </article>
+        <article class="card">
+          <p class="who">Parcours professionnel</p>
+          <p class="quote">Où en êtes-vous dans votre parcours ?</p>
+          <p class="fine" style="font-size:1rem">Questionnement, exploration, décision, action ou consolidation : situez votre étape et découvrez ce qui peut vous aider maintenant.</p>
+          <p class="meta">19 questions · environ 4 minutes</p>
+          <div class="actions"><button type="button" class="btn btn-main" data-quiz="etape-parcours">Situer mon étape</button></div>
+        </article>
+        <article class="card">
+          <p class="who">Dirigeants de TPE et PME</p>
+          <p class="quote">D'où viennent vos difficultés RH ?</p>
+          <p class="fine" style="font-size:1rem">Organisation, besoins, compétences, départs, santé au travail, RSE, formation : repérez vos trois chantiers prioritaires.</p>
+          <p class="meta">12 questions sur une page · environ 4 minutes</p>
+          <div class="actions"><button type="button" class="btn btn-main" data-quiz="autodiagnostic-rh">Faire l'autodiagnostic RH</button></div>
+        </article>
+      </div>
+      <p class="fine" style="color:var(--muted);font-size:.92rem;max-width:46em">Questionnaires créés par Psycorpo. Vos réponses restent sur votre appareil : rien n'est envoyé ni enregistré, et vous n'avez pas besoin de laisser vos coordonnées.</p>
+    </div>
+  </section>
 
-        <article class="card">
-          <p class="who">Pour faire le point sur la formation</p>
-          <p class="quote">Le pré-test formation</p>
-          <p class="fine" style="font-size:1rem">Rapide et ludique, il vous aide à repérer vos besoins en formation, ou ceux de votre équipe.</p>
-          <ul>
-            <li>Pour les salariés qui veulent évoluer</li>
-            <li>Pour les dirigeants de TPE et PME</li>
-            <li>Un premier point simple, avant d'aller plus loin</li>
-          </ul>
-          <div class="actions">
-            <a class="btn btn-main" href="https://test.18h01.fr/?vdi=1490" target="_blank" rel="noopener">Faire le pré-test formation</a>
-          </div>
-          <p class="fine">Le test s'ouvre dans un nouvel onglet. Une fois terminé, revenez sur cette page pour <a href="#decrypter">réserver le décryptage offert de vos résultats</a>.</p>
-        </article>
+  <section class="qpanel" id="quiz-panel" aria-labelledby="quiz-title" hidden>
+    <div class="wrap">
+      <div class="qpanel-head">
+        <h2 id="quiz-title"></h2>
+        <button type="button" id="quiz-close">Changer de questionnaire</button>
       </div>
-      <p class="fine" style="color:var(--muted);font-size:.92rem;max-width:46em">Les tests sont hébergés par mon partenaire 18h01. Pour vous envoyer vos résultats, la plateforme vous demandera vos coordonnées.</p>
+      <div id="quiz" aria-live="polite"></div>
     </div>
   </section>
 
@@ -234,8 +245,8 @@ footer .wrap { padding-block: 24px; font-size: 0.9rem; color: var(--muted); disp
         <h2 id="after-title">Vos résultats sont un point de départ</h2>
       </div>
       <ol>
-        <li><h3>Vous faites le test</h3><p>En ligne, au moment qui vous arrange.</p></li>
-        <li><h3>Vous recevez vos résultats</h3><p>Ils donnent une première photographie de vous, à un moment de votre vie. C'est une hypothèse, pas un verdict.</p></li>
+        <li><h3>Vous répondez au questionnaire</h3><p>En ligne, au moment qui vous arrange, sans inscription.</p></li>
+        <li><h3>Vous découvrez vos résultats</h3><p>Ils s'affichent tout de suite. C'est une première photographie, à un moment de votre vie : une hypothèse, pas un verdict.</p></li>
         <li><h3>Si vous le souhaitez, on en parle</h3><p>Je vous offre un rendez-vous pour décrypter vos résultats ensemble et voir quelles pistes en tirer. Sans engagement.</p></li>
       </ol>
     </div>
@@ -244,13 +255,365 @@ footer .wrap { padding-block: 24px; font-size: 0.9rem; color: var(--muted); disp
   <section class="final" id="decrypter">
     <div class="wrap">
       <div class="box">
-        <h2>Vous avez fait un test ?</h2>
+        <h2>Vous avez répondu à un questionnaire ?</h2>
         <p>Réservez un rendez-vous offert pour comprendre vos résultats et savoir quoi en faire.</p>
         <a class="btn btn-main" href="https://koalendar.com/u/psycorpo-conseil" target="_blank" rel="noopener">Décrypter mes résultats avec Justine →</a>
       </div>
     </div>
   </section>
 </main>
+<script>
+window.QUIZZES = {};
+QUIZZES['autodiagnostic-rh'] = {
+  title: 'Autodiagnostic RH express pour dirigeants',
+  mode: 'form',
+  highlight: 3,
+  questions: [
+    { type: 'scale', k: 'O', t: "La gestion RH courante (contrats, absences, plannings, paie) vous prend un temps raisonnable.",
+      labels: ['Pas du tout', 'Plutôt pas', 'Moyennement', 'Plutôt oui', 'Tout à fait'], points: [4, 3, 2, 1, 0] },
+    { type: 'multi', k: 'O', cap: 4, t: "Qu'est-ce qui vous pèse le plus côté RH aujourd'hui ?",
+      options: [{ t: 'Le recrutement', p: 1 }, { t: "L'administratif (contrats, absences, paie)", p: 1 }, { t: 'Les tensions ou conflits entre salariés', p: 1 },
+                { t: 'Les plannings et l\'organisation du travail', p: 1 }, { t: 'Les entretiens à mener', p: 1 }, { t: 'Rien de particulier', p: 0, none: true }] },
+    { type: 'single', k: 'B', t: "Quand un problème RH apparaît (départ, tension, baisse de motivation), le plus souvent…",
+      options: [{ t: "je prends le temps d'en chercher la cause avant d'agir", p: 0 }, { t: 'je règle au cas par cas, faute de temps', p: 2 },
+                { t: "j'attends que la situation se calme", p: 3 }, { t: 'je ne sais pas vraiment par où commencer', p: 3 }] },
+    { type: 'scale', k: 'B', t: "Vous savez précisément de quoi votre entreprise aura besoin dans les 12 prochains mois (compétences, recrutements, organisation).",
+      labels: ['Pas du tout', 'Plutôt pas', 'Moyennement', 'Plutôt oui', 'Tout à fait'], points: [4, 3, 2, 1, 0] },
+    { type: 'scale', k: 'C', t: "Vous connaissez les compétences de chacun de vos salariés, y compris celles qu'ils n'utilisent pas aujourd'hui.",
+      labels: ['Pas du tout', 'Plutôt pas', 'Moyennement', 'Plutôt oui', 'Tout à fait'], points: [4, 3, 2, 1, 0] },
+    { type: 'single', k: 'C', t: "Les entretiens de parcours professionnel (anciennement entretiens professionnels) dans votre entreprise…",
+      options: [{ t: 'sont faits et débouchent sur des actions concrètes', p: 0 }, { t: 'sont faits, mais restent une formalité', p: 2 },
+                { t: 'ne sont pas tous faits', p: 3 }, { t: 'je ne sais pas de quoi il s\'agit', p: 4 }] },
+    { type: 'scale', k: 'V', t: "Dans votre entreprise, chacun sait clairement qui fait quoi.",
+      labels: ['Pas du tout', 'Plutôt pas', 'Moyennement', 'Plutôt oui', 'Tout à fait'], points: [4, 3, 2, 1, 0] },
+    { type: 'multi', k: 'V', cap: 4, t: "Pour les 2 prochaines années, de quoi avez-vous connaissance ?",
+      options: [{ t: 'Des départs à la retraite à prévoir', p: 1 }, { t: "Des salariés qui ont dit vouloir partir ou changer de poste", p: 1 },
+                { t: 'Des postes difficiles à remplacer si la personne part', p: 2 }, { t: "Je n'ai pas de visibilité sur les départs possibles", p: 4 },
+                { t: 'Aucun départ prévu, et je suis serein', p: 0, none: true }] },
+    { type: 'scale', k: 'S', t: "Vous observez des signes de fatigue, de stress ou d'usure dans vos équipes (absences, arrêts, tensions, erreurs).",
+      labels: ['Jamais', 'Rarement', 'Parfois', 'Souvent', 'Très souvent'], points: [0, 1, 2, 3, 4] },
+    { type: 'single', k: 'R', t: "Où en est votre entreprise sur la RSE (responsabilité sociétale) ?",
+      options: [{ t: 'Une démarche formalisée et suivie', p: 0 }, { t: 'Quelques actions, sans démarche structurée', p: 2 },
+                { t: "Rien pour l'instant, mais le sujet m'intéresse", p: 3 }, { t: "Rien, ce n'est pas une priorité", p: 3 }] },
+    { type: 'scale', k: 'F', t: "Évaluez le niveau de connaissance des droits à la formation (OPCO, CPF, plan de développement des compétences) :",
+      labels: ['Aucune idée', 'Vague', 'Moyen', 'Bon', 'Très bon'],
+      rows: [{ label: 'Le vôtre', points: [4, 3, 2, 1, 0] }, { label: 'Celui de vos salariés, selon vous', points: [4, 3, 2, 1, 0] }] },
+    { type: 'open', t: "En une phrase, quel est le sujet RH qui vous préoccupe le plus aujourd'hui ?", placeholder: "Par exemple : je n'arrive pas à garder mes salariés plus d'un an." }
+  ],
+  profiles: [
+    { key: 'O', name: 'Organisation et gestion RH', tagline: "La gestion du quotidien vous prend trop de temps.",
+      blocks: [["Ce que ça signifie", "L'administratif et l'organisation RH grignotent votre temps de dirigeant, au détriment du développement de votre activité."],
+               ["Ce que l'audit peut vous apporter", "Repérer ce qui peut être simplifié, organisé autrement ou confié à un appui RH extérieur, sans embaucher."]] },
+    { key: 'B', name: 'Analyse du besoin', tagline: "Les problèmes sont traités, mais leurs causes restent floues.",
+      blocks: [["Ce que ça signifie", "Vous réagissez aux urgences, sans toujours avoir le temps de comprendre d'où elles viennent ni d'anticiper la suite."],
+               ["Ce que l'audit peut vous apporter", "Prendre du recul pour identifier le vrai besoin (organisation, compétences, management, recrutement) avant d'investir du temps ou de l'argent."]] },
+    { key: 'C', name: 'Compétences des équipes', tagline: "Les compétences de vos salariés sont mal connues.",
+      blocks: [["Ce que ça signifie", "Vous pourriez passer à côté de compétences déjà présentes dans l'équipe, ou former au mauvais endroit."],
+               ["Ce que l'audit peut vous apporter", "Faire le point sur les compétences de l'équipe et donner du sens aux entretiens de parcours professionnel."]] },
+    { key: 'V', name: 'Visibilité sur les postes et les départs', tagline: "Qui fait quoi, et qui risque de partir ?",
+      blocks: [["Ce que ça signifie", "Un départ imprévu sur un poste clé peut désorganiser toute l'entreprise, surtout dans une petite équipe."],
+               ["Ce que l'audit peut vous apporter", "Clarifier les rôles, repérer les postes sensibles et préparer les départs avant qu'ils ne deviennent un problème."]] },
+    { key: 'S', name: 'Santé au travail', tagline: "Des signaux d'usure apparaissent dans les équipes.",
+      blocks: [["Ce que ça signifie", "Fatigue, stress ou tensions finissent par coûter cher : absences, erreurs, départs. Mieux vaut agir tôt."],
+               ["Ce que l'audit peut vous apporter", "Comprendre ce qui use vos équipes et mettre en place des actions de qualité de vie et des conditions de travail (QVCT) adaptées à votre taille."]] },
+    { key: 'R', name: 'Démarche RSE', tagline: "La RSE n'est pas encore structurée.",
+      blocks: [["Ce que ça signifie", "Clients, partenaires et candidats y sont de plus en plus attentifs, y compris dans les petites entreprises."],
+               ["Ce que l'audit peut vous apporter", "Repérer ce que vous faites déjà sans le valoriser, et les premières actions simples à engager."]] },
+    { key: 'F', name: 'Droits à la formation', tagline: "Les financements de la formation sont mal connus.",
+      blocks: [["Ce que ça signifie", "Vous et vos salariés laissez probablement de côté des financements possibles (OPCO, CPF)."],
+               ["Ce que l'audit peut vous apporter", "Faire le point sur les financements possibles et sur les formations utiles à votre équipe."]] }
+  ],
+  resultTitle: function (r) { return 'Votre premier chantier : ' + r[0].p.name.toLowerCase(); },
+  resultIntro: function (r) { return 'Vos trois axes de vigilance les plus marqués sont : ' + r[0].p.name.toLowerCase() + ', ' + r[1].p.name.toLowerCase() + ' et ' + r[2].p.name.toLowerCase() + '.'; },
+  closeness: function (r) {
+    if (r[0].score < 30) return "Vos niveaux de vigilance sont plutôt bas : votre gestion RH semble solide. Un échange peut tout de même vous aider à anticiper les prochaines étapes.";
+    if (r[6].score >= 50) return "Tous vos axes ressortent avec un niveau de vigilance notable : le plus efficace est de commencer par un seul chantier, le premier de la liste.";
+    return '';
+  },
+  cta: { title: 'Et si on en parlait ?', text: "L'audit offert permet de confirmer ces résultats avec vous, de comprendre d'où vient vraiment le problème et de repartir avec des actions concrètes et adaptées à la taille de votre entreprise.", href: '/entreprises/', button: "Découvrir l'audit offert →" },
+  disclaimer: "Autodiagnostic express créé par Psycorpo pour repérer vos priorités RH. Ce n'est pas un audit complet : il donne des repères à confirmer ensemble. Vos réponses restent sur votre appareil : rien n'est envoyé ni enregistré."
+};
+
+QUIZZES['personnalite'] = {
+  title: "Questionnaire de personnalité professionnelle",
+  scale: ['Pas du tout moi', 'Plutôt pas moi', 'Un peu moi', 'Plutôt moi', 'Tout à fait moi'],
+  highlight: 2,
+  items: [
+    { k: '1', t: "Je remarque vite ce qui pourrait être mieux fait." },
+    { k: '1', t: "J'ai du mal à me contenter d'un travail « à peu près »." },
+    { k: '1', t: "Je me sens responsable de faire les choses correctement." },
+    { k: '1', t: "Je m'impose des règles et des exigences élevées." },
+    { k: '2', t: "J'aime me rendre utile pour les autres." },
+    { k: '2', t: "Je sens facilement ce dont les gens ont besoin." },
+    { k: '2', t: "J'ai du mal à dire non quand on me demande de l'aide." },
+    { k: '2', t: "Au travail, la qualité des relations compte énormément pour moi." },
+    { k: '3', t: "Atteindre mes objectifs me motive énormément." },
+    { k: '3', t: "J'ai besoin que mes résultats soient reconnus." },
+    { k: '3', t: "Je m'adapte vite pour être efficace dans chaque situation." },
+    { k: '3', t: "Il m'arrive de m'investir dans le travail au point d'en oublier le reste." },
+    { k: '4', t: "J'ai besoin que mon travail ait un sens pour moi, personnellement." },
+    { k: '4', t: "Je ressens les émotions de façon intense." },
+    { k: '4', t: "J'ai souvent l'impression de voir les choses autrement que les autres." },
+    { k: '4', t: "J'aime mettre ma touche personnelle dans ce que je fais." },
+    { k: '5', t: "J'ai besoin de bien comprendre avant d'agir." },
+    { k: '5', t: "J'ai besoin de temps seul pour recharger mes batteries." },
+    { k: '5', t: "Je préfère observer une situation avant de m'y impliquer." },
+    { k: '5', t: "J'aime approfondir un sujet jusqu'à bien le maîtriser." },
+    { k: '6', t: "J'anticipe facilement ce qui pourrait mal tourner." },
+    { k: '6', t: "La loyauté envers mon équipe est essentielle pour moi." },
+    { k: '6', t: "J'ai besoin d'un cadre clair et de personnes de confiance autour de moi." },
+    { k: '6', t: "Je doute parfois de mes décisions et j'aime les faire valider." },
+    { k: '7', t: "J'aime avoir plein d'idées et de projets en même temps." },
+    { k: '7', t: "La routine m'ennuie vite." },
+    { k: '7', t: "Je vois facilement le bon côté des situations." },
+    { k: '7', t: "J'aime découvrir et essayer de nouvelles choses." },
+    { k: '8', t: "Je dis les choses franchement, même quand ça dérange." },
+    { k: '8', t: "J'aime prendre les choses en main." },
+    { k: '8', t: "Je défends les personnes traitées injustement." },
+    { k: '8', t: "Je supporte mal qu'on me contrôle." },
+    { k: '9', t: "J'évite les conflits autant que possible." },
+    { k: '9', t: "Je m'adapte facilement aux autres." },
+    { k: '9', t: "On me dit souvent que ma présence apaise." },
+    { k: '9', t: "J'ai parfois du mal à savoir ce que je veux vraiment." }
+  ],
+  profiles: [
+    { key: '1', name: 'Profil Exigence', tagline: "Faire les choses bien, et dans les règles.",
+      blocks: [["Ce qui vous motive", "Améliorer ce qui peut l'être, agir de façon juste et rigoureuse."],
+               ["Vos forces au travail", "Fiabilité, sens du détail, honnêteté, capacité à structurer et à faire progresser la qualité."],
+               ["Points de vigilance", "Le perfectionnisme, l'autocritique, la difficulté à déléguer ou à accepter un résultat « suffisant »."]] },
+    { key: '2', name: 'Profil Générosité', tagline: "Être utile, et en lien avec les autres.",
+      blocks: [["Ce qui vous motive", "Aider, soutenir, être apprécié pour ce que vous apportez aux autres."],
+               ["Vos forces au travail", "Écoute, empathie, sens du service, capacité à créer une bonne ambiance d'équipe."],
+               ["Points de vigilance", "S'oublier soi-même, avoir du mal à dire non, attendre une reconnaissance qui ne vient pas."]] },
+    { key: '3', name: 'Profil Réussite', tagline: "Avancer, atteindre ses objectifs, être reconnu.",
+      blocks: [["Ce qui vous motive", "Réussir, progresser, montrer ce dont vous êtes capable."],
+               ["Vos forces au travail", "Efficacité, énergie, adaptabilité, sens des résultats et de l'organisation."],
+               ["Points de vigilance", "Le surinvestissement, la peur de l'échec, le risque de mettre ses envies de côté pour l'image."]] },
+    { key: '4', name: 'Profil Authenticité', tagline: "Donner du sens, rester fidèle à soi.",
+      blocks: [["Ce qui vous motive", "Faire un travail qui vous ressemble et qui a du sens pour vous."],
+               ["Vos forces au travail", "Créativité, sensibilité, profondeur, capacité à percevoir ce que les autres ne voient pas."],
+               ["Points de vigilance", "Les variations d'humeur, le sentiment de décalage, la démotivation quand le travail manque de sens."]] },
+    { key: '5', name: 'Profil Compréhension', tagline: "Observer, analyser, maîtriser son sujet.",
+      blocks: [["Ce qui vous motive", "Comprendre le monde en profondeur et devenir compétent dans votre domaine."],
+               ["Vos forces au travail", "Recul, analyse, expertise, calme dans les situations complexes."],
+               ["Points de vigilance", "S'isoler, garder ses idées pour soi, attendre d'en savoir « assez » avant d'agir."]] },
+    { key: '6', name: 'Profil Sécurité', tagline: "Anticiper, s'engager, protéger le collectif.",
+      blocks: [["Ce qui vous motive", "Un cadre stable, des relations de confiance, se sentir en sécurité."],
+               ["Vos forces au travail", "Loyauté, sens des responsabilités, anticipation des risques, engagement dans l'équipe."],
+               ["Points de vigilance", "Le doute, l'inquiétude face à l'incertitude, le besoin de validation avant de décider."]] },
+    { key: '7', name: 'Profil Enthousiasme', tagline: "Explorer, imaginer, garder l'élan.",
+      blocks: [["Ce qui vous motive", "La nouveauté, la liberté, les projets stimulants et les bonnes surprises."],
+               ["Vos forces au travail", "Optimisme, créativité, énergie communicative, capacité à rebondir."],
+               ["Points de vigilance", "La dispersion, l'ennui face à la routine, la difficulté à aller au bout quand ça devient répétitif."]] },
+    { key: '8', name: 'Profil Affirmation', tagline: "Agir, décider, protéger.",
+      blocks: [["Ce qui vous motive", "Garder la maîtrise de votre vie, agir avec force et défendre ce qui est juste."],
+               ["Vos forces au travail", "Leadership, franchise, courage, capacité à décider et à protéger une équipe."],
+               ["Points de vigilance", "Une franchise qui peut heurter, la difficulté à montrer sa vulnérabilité ou à accepter d'être encadré."]] },
+    { key: '9', name: 'Profil Harmonie', tagline: "Apaiser, rassembler, garder l'équilibre.",
+      blocks: [["Ce qui vous motive", "La paix, l'harmonie dans les relations, un environnement serein."],
+               ["Vos forces au travail", "Écoute, diplomatie, patience, capacité à rassembler des points de vue différents."],
+               ["Points de vigilance", "Éviter les conflits au détriment de vos besoins, reporter les décisions, perdre de vue vos propres priorités."]] }
+  ],
+  resultTitle: function (r) { return 'Votre profil dominant : ' + r[0].p.name.replace('Profil ', ''); },
+  resultIntro: function (r) { return 'Votre deuxième profil : ' + r[1].p.name.replace('Profil ', '') + '. Chacun de nous a un peu de chaque profil : regardez surtout ce qui vous parle dans les descriptions ci-dessous.'; },
+  closeness: function (r) {
+    if (r[0].score - r[2].score < 8) return "Vos trois premiers profils sont très proches (" + r[0].p.name + ', ' + r[1].p.name + ' et ' + r[2].p.name + "). Votre profil n'est pas tranché : un échange permet souvent de l'affiner.";
+    return '';
+  },
+  cta: { title: 'Vous vous reconnaissez ?', text: "Pendant le rendez-vous d'exploration offert, on regarde ensemble ce que votre profil dit de vos motivations au travail, de l'environnement qui vous convient et de vos pistes d'évolution.", href: '/exploration/', button: 'Réserver mon exploration offerte →', more: ['C\'est quoi, le rendez-vous offert ?', '/rendez-vous-offert/'] },
+  disclaimer: "Questionnaire original créé par Psycorpo pour réfléchir à votre personnalité et à vos motivations au travail. Ce n'est pas un outil psychométrique validé : il donne des pistes à discuter, pas un diagnostic. Vos réponses restent sur votre appareil : rien n'est envoyé ni enregistré."
+};
+
+QUIZZES['etape-parcours'] = {
+  title: "Où en êtes-vous dans votre parcours professionnel ?",
+  scale: ['Pas du tout', 'Plutôt pas', 'Un peu', 'Plutôt oui', 'Tout à fait'],
+  perStep: 5,
+  highlight: 1,
+  items: [
+    { k: 'Q', t: "Je ressens de la lassitude ou un manque de sens dans mon travail actuel." },
+    { k: 'Q', t: "Je me demande souvent si je suis à ma place." },
+    { k: 'Q', t: "Je sens que quelque chose doit changer, sans savoir encore quoi." },
+    { k: 'X', t: "Je me renseigne sur d'autres métiers, secteurs ou formations." },
+    { k: 'X', t: "J'ai plusieurs pistes en tête, mais je n'arrive pas à choisir." },
+    { k: 'X', t: "J'ai envie de mieux connaître mes compétences et ce qui me motive." },
+    { k: 'D', t: "J'ai une idée assez précise du métier ou du projet qui m'attire." },
+    { k: 'D', t: "Je cherche à vérifier que mon projet est réaliste (débouchés, salaire, conditions de travail)." },
+    { k: 'D', t: "Je me pose des questions sur la formation ou le financement dont j'aurais besoin." },
+    { k: 'A', t: "J'ai déjà commencé des démarches concrètes (formation, candidatures, création d'activité)." },
+    { k: 'A', t: "Je suis en train de vivre un changement professionnel (nouveau poste, reconversion, reprise)." },
+    { k: 'A', t: "J'aurais besoin d'aide pour tenir le cap et m'organiser dans ce changement." },
+    { k: 'C', t: "Je me sens globalement à ma place dans mon travail." },
+    { k: 'C', t: "J'aimerais évoluer ou développer mes compétences là où je suis." },
+    { k: 'C', t: "J'aimerais faire reconnaître mon expérience (VAE, promotion, nouvelles responsabilités)." }
+  ],
+  profiles: [
+    { key: 'Q', name: 'Le questionnement', tagline: "Quelque chose ne va plus, et vous le sentez.",
+      blocks: [["Ce que vous vivez", "Une lassitude, un manque de sens ou un sentiment de ne plus être à votre place. Vous ne savez pas encore ce que vous voulez, mais vous savez que la situation actuelle ne vous convient plus."],
+               ["Ce qui aide à cette étape", "Mettre des mots sur ce qui ne va pas, et sur ce qui compte pour vous. Prendre le temps de faire le point avant de foncer dans une direction."],
+               ["Comment je peux vous accompagner", "Le rendez-vous d'exploration offert sert exactement à ça : faire le point. Si besoin, un bilan de compétences permet ensuite d'aller plus loin."]] },
+    { key: 'X', name: "L'exploration", tagline: "Vous cherchez, vous comparez, vous hésitez.",
+      blocks: [["Ce que vous vivez", "Vous avez envie de changer et vous regardez ce qui existe. Les pistes se multiplient, et choisir devient difficile."],
+               ["Ce qui aide à cette étape", "Mieux vous connaître (intérêts, valeurs, compétences) pour trier les pistes, et aller voir les métiers de plus près."],
+               ["Comment je peux vous accompagner", "Des outils reconnus (questionnaires d'intérêts, de personnalité et de valeurs) et des enquêtes métier, dans le cadre d'un bilan de compétences ou d'orientation."]] },
+    { key: 'D', name: 'La décision', tagline: "Vous avez une piste : il reste à la vérifier.",
+      blocks: [["Ce que vous vivez", "Un projet se dessine. Vous vous posez des questions précises : est-ce réaliste ? quelle formation ? quel financement ?"],
+               ["Ce qui aide à cette étape", "Confronter votre projet au réel : rencontrer des professionnels, vérifier les débouchés, construire un plan d'action et un plan de financement."],
+               ["Comment je peux vous accompagner", "Valider votre projet avec vous, étape par étape, et repérer les financements possibles (CPF, OPCO…)."]] },
+    { key: 'A', name: "L'action", tagline: "Vous êtes en plein changement.",
+      blocks: [["Ce que vous vivez", "Vous avez lancé des démarches : formation, candidatures, nouveau poste, création d'activité. C'est stimulant, et parfois déstabilisant."],
+               ["Ce qui aide à cette étape", "Garder le cap, s'organiser, préparer ses candidatures et ses entretiens, et ne pas rester seul face aux doutes."],
+               ["Comment je peux vous accompagner", "Un accompagnement ciblé : CV, lettre, préparation aux entretiens, organisation de la transition et soutien dans la durée."]] },
+    { key: 'C', name: 'La consolidation', tagline: "Vous êtes à votre place, et vous voulez grandir.",
+      blocks: [["Ce que vous vivez", "Votre situation vous convient globalement. Vous avez envie d'évoluer, d'apprendre ou de faire reconnaître votre expérience."],
+               ["Ce qui aide à cette étape", "Identifier vos compétences, définir une prochaine étape réaliste et la préparer : évolution interne, formation, VAE."],
+               ["Comment je peux vous accompagner", "Faire le point sur vos compétences et construire votre projet d'évolution, avec un bilan ou un accompagnement VAE."]] }
+  ],
+  extraIntro: "Dernière étape : quelques questions sur ce qui peut faciliter ou freiner un changement. Il n'y a pas de bonne ou de mauvaise réponse.",
+  extra: [
+    { type: 'single', t: "Selon vous, avez-vous un blocage pour entreprendre un changement dans votre carrière ?",
+      options: [
+        { t: "Non, rien ne me bloque vraiment", a: "Vous ne percevez pas de frein majeur : c'est un vrai atout. Reste à choisir la bonne direction et le bon moment.", frein: false },
+        { t: "Oui : le manque de temps", a: "Le manque de temps est l'un des freins les plus fréquents. Un changement peut se préparer par petites étapes, compatibles avec un emploi du temps chargé.", frein: true },
+        { t: "Oui : l'aspect financier", a: "La question financière est légitime. Des financements existent (CPF, dispositifs de transition professionnelle, aides selon votre situation) : les connaître change souvent la donne.", frein: true },
+        { t: "Oui : la peur de me tromper ou d'échouer", a: "La peur de se tromper ou d'échouer est très courante. Elle diminue quand le projet est vérifié pas à pas et confronté au réel avant de se lancer.", frein: true },
+        { t: "Oui : je ne sais pas par où commencer", a: "Ne pas savoir par où commencer bloque beaucoup de personnes. Un cadre et des étapes claires suffisent souvent à remettre les choses en mouvement.", frein: true },
+        { t: "Oui : l'avis ou le regard de mon entourage", a: "L'avis des proches compte. Un regard extérieur et neutre aide à distinguer ce que vous voulez vraiment de ce que les autres attendent de vous.", frein: true },
+        { t: "Oui : mon âge, mon niveau d'études ou mon parcours", a: "On peut changer de voie à tout âge et quel que soit son niveau d'études. Votre parcours contient souvent des ressources à valoriser plutôt qu'un obstacle.", frein: true },
+        { t: "Oui : autre chose", a: "Vous identifiez un frein qui vous est propre : il mérite d'être posé et regardé ensemble.", frein: true }
+      ] },
+    { type: 'multi', t: "Que ressentez-vous à l'idée de changer un ou plusieurs éléments de votre vie professionnelle ?",
+      options: [
+        { t: 'Gêne', v: -1 }, { t: 'Excitation', v: 1 }, { t: 'Angoisse', v: -1 }, { t: 'Impatience', v: 1 },
+        { t: 'Inquiétude', v: -1 }, { t: 'Insécurité', v: -1 }, { t: 'Satisfaction', v: 1 }, { t: 'Curiosité', v: 1 },
+        { t: 'Soulagement', v: 1 }, { t: 'Indifférence', v: 0 }
+      ] },
+    { type: 'single', t: "Avez-vous déjà souhaité entreprendre des changements, sans parvenir à le faire ?",
+      options: [
+        { t: 'Oui', a: "Vous avez déjà eu envie de changer sans y parvenir. Comprendre ce qui vous a arrêté à ce moment-là aide souvent à avancer aujourd'hui.", frein: true },
+        { t: 'Non', a: "Vous n'avez pas de projet de changement resté en suspens : vous pouvez partir sur des bases neuves.", frein: false },
+        { t: 'Je ne sais pas', a: "Vous ne savez pas trop : certaines envies de changement restent floues sans qu'on s'en rende compte. En parler permet de les clarifier.", frein: false }
+      ] },
+    { type: 'single', t: "Pour vous, l'évolution professionnelle est…",
+      options: [
+        { t: 'une priorité', a: "Vous en faites une priorité : vous avez l'énergie pour vous y consacrer. C'est le bon moment pour structurer votre démarche.", frein: false },
+        { t: 'un passage obligé', a: "Vous la voyez comme un passage obligé : une contrainte (poste, santé, contexte) vous pousse peut-être à évoluer. L'enjeu est d'en faire aussi un projet qui vous ressemble.", frein: false },
+        { t: 'une réalité', a: "Vous la voyez comme une réalité : vous l'abordez avec pragmatisme, ce qui aide à avancer sereinement.", frein: false },
+        { t: 'une difficulté à dépasser', a: "Vous la voyez comme une difficulté à dépasser : vous avez conscience des obstacles, et c'est en les nommant qu'on peut les lever un à un.", frein: true },
+        { t: 'un fardeau à éviter', a: "Vous la vivez comme un fardeau : l'idée d'évoluer pèse aujourd'hui. Être accompagné peut alléger cette charge et redonner du sens à la démarche.", frein: true }
+      ] }
+  ],
+  extraResult: function (x, q) {
+    var o1 = q[0].options[x[0][0]], o3 = q[2].options[x[2][0]], o4 = q[3].options[x[3][0]];
+    var emos = x[1].map(function (i) { return q[1].options[i]; });
+    var pos = emos.filter(function (e) { return e.v > 0; }).length, neg = emos.filter(function (e) { return e.v < 0; }).length;
+    var names = emos.map(function (e) { return e.t.toLowerCase(); }).join(', ');
+    var emoText;
+    if (!pos && !neg) emoText = "Le sujet ne suscite pas d'émotion forte chez vous pour l'instant : le changement n'est peut-être pas une priorité aujourd'hui, ou vous avez besoin d'y voir plus clair.";
+    else if (pos && !neg) emoText = "Vos ressentis sont tournés vers l'envie : c'est un moteur précieux pour passer à l'action.";
+    else if (neg && !pos) emoText = "L'idée du changement fait surtout naître des émotions d'inquiétude. C'est normal : changer, c'est sortir de ce que l'on connaît. Les reconnaître est déjà un premier pas pour les apprivoiser.";
+    else emoText = "Vous ressentez à la fois de l'envie et des craintes. Cette ambivalence est très courante face au changement : elle montre que le sujet compte pour vous.";
+    var freins = [o1.frein, o3.frein, o4.frein, neg > pos].filter(Boolean).length;
+    var synth = freins >= 2
+      ? "Plusieurs éléments peuvent freiner votre changement. Ce n'est pas une fatalité : c'est justement ce que l'on peut regarder ensemble pendant le rendez-vous d'exploration offert."
+      : "Peu d'éléments semblent freiner votre changement. Le rendez-vous d'exploration offert peut vous aider à passer à l'étape suivante, concrètement.";
+    return '<p class="who">Ce qui peut faciliter ou freiner votre changement</p>' +
+      '<p class="q-tag">' + synth + '</p>' +
+      '<h3>Ce qui vous bloque, selon vous</h3><p>' + o1.a + '</p>' +
+      '<h3>Ce que vous ressentez (' + names + ')</h3><p>' + emoText + '</p>' +
+      '<h3>Vos envies de changement passées</h3><p>' + o3.a + '</p>' +
+      '<h3>L\'évolution professionnelle, pour vous</h3><p>' + o4.a + '</p>';
+  },
+  resultTitle: function (r) { return 'Vous êtes plutôt à l\'étape : ' + r[0].p.name; },
+  resultIntro: function (r) { return "Un parcours professionnel n'est pas une ligne droite : on peut se situer entre deux étapes, ou revenir en arrière, et c'est normal. Votre deuxième étape la plus marquée est " + r[1].p.name.toLowerCase() + '.'; },
+  closeness: function (r) {
+    if (r[0].score - r[1].score < 8) return "Deux étapes ressortent presque à égalité (" + r[0].p.name.toLowerCase() + ' et ' + r[1].p.name.toLowerCase() + ") : vous êtes sans doute en train de passer de l'une à l'autre.";
+    return '';
+  },
+  cta: { title: "Faisons le point sur votre étape", text: "Pendant le rendez-vous d'exploration offert, on regarde où vous en êtes vraiment, ce qui vous aiderait maintenant, et la prochaine étape concrète.", href: '/exploration/', button: 'Réserver mon exploration offerte →', more: ['C\'est quoi, le rendez-vous offert ?', '/rendez-vous-offert/'] },
+  disclaimer: "Questionnaire de positionnement créé par Psycorpo, pour situer votre étape dans un parcours professionnel. Ce n'est pas un outil psychométrique validé : il donne des repères, pas un diagnostic. Vos réponses restent sur votre appareil : rien n'est envoyé ni enregistré."
+};
+
+QUIZZES['activites'] = {
+  title: "Découvrez les activités que vous préférez réaliser",
+  scale: ['Pas du tout', 'Plutôt pas', 'Indifférent', 'Plutôt oui', 'Beaucoup'],
+  highlight: 3,
+  items: [
+    { k: 'R', t: "Réparer un appareil, un vélo ou une machine" },
+    { k: 'R', t: "Travailler dehors : sur un chantier, dans la nature, sur le terrain" },
+    { k: 'R', t: "Construire ou assembler quelque chose de mes mains" },
+    { k: 'R', t: "Conduire ou piloter un véhicule, un engin" },
+    { k: 'R', t: "Utiliser des outils ou du matériel technique" },
+    { k: 'R', t: "Cultiver la terre, m'occuper d'animaux ou de plantes" },
+    { k: 'I', t: "Comprendre comment fonctionne un phénomène scientifique" },
+    { k: 'I', t: "Analyser des chiffres ou des données pour trouver une explication" },
+    { k: 'I', t: "Faire des expériences ou des analyses en laboratoire" },
+    { k: 'I', t: "Prendre le temps de réfléchir à un problème complexe" },
+    { k: 'I', t: "Lire des études ou des articles spécialisés" },
+    { k: 'I', t: "Mener une enquête pour comprendre une situation" },
+    { k: 'A', t: "Créer un visuel, un dessin, une affiche" },
+    { k: 'A', t: "Écrire des textes, des histoires ou des articles" },
+    { k: 'A', t: "Jouer de la musique, chanter ou faire du théâtre" },
+    { k: 'A', t: "Décorer ou aménager un lieu" },
+    { k: 'A', t: "Inventer une idée, un concept original" },
+    { k: 'A', t: "Photographier ou filmer" },
+    { k: 'S', t: "Aider une personne en difficulté" },
+    { k: 'S', t: "Expliquer, enseigner, transmettre ce que je sais" },
+    { k: 'S', t: "Écouter quelqu'un et le conseiller" },
+    { k: 'S', t: "Accompagner des enfants, des jeunes ou des personnes âgées" },
+    { k: 'S', t: "Travailler en équipe sur un projet utile aux autres" },
+    { k: 'S', t: "Prendre soin de quelqu'un au quotidien" },
+    { k: 'E', t: "Convaincre quelqu'un d'adhérer à mon idée" },
+    { k: 'E', t: "Diriger une équipe ou piloter un projet" },
+    { k: 'E', t: "Négocier un prix ou un accord" },
+    { k: 'E', t: "Créer et développer ma propre activité" },
+    { k: 'E', t: "Prendre des décisions rapides, avec des enjeux" },
+    { k: 'E', t: "Vendre un produit ou un service" },
+    { k: 'C', t: "Classer et organiser des documents ou des fichiers" },
+    { k: 'C', t: "Tenir des comptes ou suivre un budget" },
+    { k: 'C', t: "Suivre une procédure précise, étape par étape" },
+    { k: 'C', t: "Vérifier qu'un travail ne comporte aucune erreur" },
+    { k: 'C', t: "Utiliser un tableur ou un logiciel de gestion" },
+    { k: 'C', t: "Préparer un planning, organiser un emploi du temps" }
+  ],
+  profiles: [
+    { key: 'R', name: 'Réaliste', tagline: "Du concret, du terrain, des résultats visibles.",
+      blocks: [["Ce qui vous attire", "Manipuler, fabriquer, réparer, bouger. Vous aimez voir le résultat de votre travail et utiliser vos mains, des outils ou des machines."],
+               ["Où vous vous sentez bien", "Ateliers, chantiers, extérieur, exploitations, transport, maintenance, sport."],
+               ["Exemples de métiers", "Électricien, mécanicien, menuisier, paysagiste, technicien de maintenance, agent de sécurité, conducteur d'engins, éleveur."]] },
+    { key: 'I', name: 'Investigateur', tagline: "Comprendre, analyser, aller au fond des choses.",
+      blocks: [["Ce qui vous attire", "Observer, chercher, raisonner. Vous aimez les questions qui demandent de la réflexion et les problèmes à résoudre."],
+               ["Où vous vous sentez bien", "Laboratoires, bureaux d'études, informatique, santé, recherche, analyse de données."],
+               ["Exemples de métiers", "Développeur, analyste de données, technicien de laboratoire, ingénieur, pharmacien, chercheur, géomètre."]] },
+    { key: 'A', name: 'Artistique', tagline: "Créer, imaginer, exprimer.",
+      blocks: [["Ce qui vous attire", "Inventer, composer, mettre en forme. Vous aimez la liberté, l'originalité et les activités où vous pouvez vous exprimer."],
+               ["Où vous vous sentez bien", "Communication, design, spectacle, artisanat d'art, édition, architecture, audiovisuel."],
+               ["Exemples de métiers", "Graphiste, photographe, rédacteur, décorateur, illustrateur, monteur vidéo, fleuriste, architecte d'intérieur."]] },
+    { key: 'S', name: 'Social', tagline: "Aider, accompagner, transmettre.",
+      blocks: [["Ce qui vous attire", "Être en relation, rendre service, faire grandir les autres. Vous êtes attentif aux personnes et à leur bien-être."],
+               ["Où vous vous sentez bien", "Éducation, santé, action sociale, aide à domicile, formation, ressources humaines, animation."],
+               ["Exemples de métiers", "Éducateur, infirmier, aide-soignant, formateur, conseiller en insertion, animateur, accompagnant éducatif et social."]] },
+    { key: 'E', name: 'Entreprenant', tagline: "Décider, convaincre, entreprendre.",
+      blocks: [["Ce qui vous attire", "Prendre des initiatives, influencer, relever des défis. Vous aimez les responsabilités et voir un projet avancer grâce à vous."],
+               ["Où vous vous sentez bien", "Commerce, management, création d'entreprise, immobilier, événementiel, politique, restauration."],
+               ["Exemples de métiers", "Commercial, chef d'entreprise, manager, agent immobilier, responsable de magasin, chargé d'affaires, restaurateur."]] },
+    { key: 'C', name: 'Conventionnel', tagline: "Organiser, structurer, fiabiliser.",
+      blocks: [["Ce qui vous attire", "Mettre de l'ordre, suivre des règles claires, être précis. Vous aimez savoir ce qu'on attend de vous et faire un travail fiable."],
+               ["Où vous vous sentez bien", "Administration, comptabilité, banque, logistique, secrétariat, gestion, qualité."],
+               ["Exemples de métiers", "Comptable, assistant de gestion, gestionnaire de paie, secrétaire médical, logisticien, agent administratif, contrôleur qualité."]] }
+  ],
+  resultTitle: function (r) { return 'Vos activités préférées : ' + r.slice(0, 3).map(function (x) { return x.p.name; }).join(', '); },
+  resultIntro: function (r) { return 'Vos trois profils dominants sont ' + r[0].p.name + ', ' + r[1].p.name + ' et ' + r[2].p.name + '. On regarde surtout leur combinaison : un métier qui vous plaît mélange souvent plusieurs profils.'; },
+  closeness: function (r) {
+    if (r[0].score - r[5].score < 20) return "Vos scores sont proches les uns des autres : vos goûts sont variés, ou pas encore très affirmés. C'est fréquent, et c'est justement un bon point de départ pour un rendez-vous d'exploration.";
+    if (r[2].score - r[3].score < 6) return "Votre troisième et votre quatrième profil sont presque à égalité (" + r[2].p.name + ' et ' + r[3].p.name + "). Les deux méritent d'être explorés.";
+    return '';
+  },
+  cta: { title: 'Et maintenant, on en parle ?', text: "Vos activités préférées donnent des pistes, pas une réponse. Pendant le rendez-vous d'exploration offert, on le confronte à votre parcours, à vos compétences et à vos contraintes, et vous repartez avec des métiers concrets à explorer.", href: '/exploration/', button: 'Réserver mon exploration offerte →', more: ['C\'est quoi, le rendez-vous offert ?', '/rendez-vous-offert/'] },
+  disclaimer: "Questionnaire d'exploration créé par Psycorpo, inspiré du modèle RIASEC du psychologue John Holland. Ce n'est pas un outil psychométrique étalonné : il donne des pistes de réflexion, pas un diagnostic. Vos réponses restent sur votre appareil : rien n'est envoyé ni enregistré."
+};
+</script>
+<script src="/assets/quiz.js"></script>
+
 
 <footer>
   <div class="wrap">
