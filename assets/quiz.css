@@ -44,6 +44,13 @@
 .q-cta { background: var(--deep); color: var(--deep-ink); border-radius: 22px; padding: 32px 24px; display: grid; gap: 14px; justify-items: center; text-align: center; }
 .q-cta p { opacity: .9; max-width: 34em; }
 .q-cta .q-more { color: var(--deep-ink); font-weight: 600; text-underline-offset: 4px; font-size: 0.95rem; }
+/* Aperçu des résultats : partie réservée à la restitution */
+.q-lock { display: grid; gap: 12px; margin-top: 6px; padding: 16px; border-radius: 14px; background: var(--soft); border: 1px dashed var(--line); }
+.q-lock-lines { display: grid; gap: 8px; }
+.q-lock-lines i { display: block; height: 10px; border-radius: 999px; background: var(--line); opacity: .8; }
+.q-lock-lines i:nth-child(2) { width: 85%; } .q-lock-lines i:nth-child(3) { width: 60%; }
+.q-lock p { color: var(--ink) !important; font-size: 0.95rem; }
+
 /* Page /tests/ : 4 tests et panneau du test en cours */
 .cards.four { grid-template-columns: repeat(2, 1fr); }
 .card .meta { font-size: 0.88rem; color: var(--muted); font-weight: 600; }

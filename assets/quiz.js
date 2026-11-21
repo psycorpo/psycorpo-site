@@ -263,22 +263,37 @@
     res.appendChild(bars);
     res.appendChild(el('p', 'q-fine', scoreNote));
     if (openText) res.appendChild(el('p', 'q-note', '<strong>Votre priorité, dans vos mots :</strong> « ' + esc(openText) + ' »<br>Gardez-la en tête : c\'est un bon point de départ pour l\'échange.'));
+    // Aperçu : le premier profil est détaillé, les suivants sont réservés à la restitution avec la psychologue
+    var T = window.QUIZ_TEASER;
+    function lock(card, items) {
+      var box = el('div', 'q-lock');
+      box.innerHTML = '<span class="q-lock-lines" aria-hidden="true"><i></i><i></i><i></i></span>' +
+        '<p><strong>' + T.lockTitle + '</strong> ' + (items && items.length ? T.lockList + ' ' + items.join(', ').toLowerCase() + '.' : T.lockText) + '</p>';
+      card.appendChild(box);
+    }
     ranked.slice(0, show).forEach(function (r, i) {
-      var card = el('article', 'q-card');
+      var card = el('article', 'q-card' + (T && i > 0 ? ' q-card-locked' : ''));
       card.appendChild(el('p', 'who', (show > 1 ? (i + 1) + ' · ' : '') + r.p.name));
       if (r.p.tagline) card.appendChild(el('p', 'q-tag', r.p.tagline));
-      (r.p.blocks || []).forEach(function (b) { card.appendChild(el('h3', null, b[0])); card.appendChild(el('p', null, b[1])); });
+      if (T && i > 0) lock(card, (r.p.blocks || []).map(function (b) { return b[0]; }));
+      else (r.p.blocks || []).forEach(function (b) { card.appendChild(el('h3', null, b[0])); card.appendChild(el('p', null, b[1])); });
       res.appendChild(card);
     });
     if (cfg.extra && cfg.extraResult && extra) {
       var ex = el('article', 'q-card q-extra');
       ex.innerHTML = cfg.extraResult(extra, cfg.extra, ranked);
+      if (T) {   // on garde le titre et la synthèse, le détail des 4 réponses est vu en rendez-vous
+        var heads = [].map.call(ex.querySelectorAll('h3'), function (h) { return h.textContent.replace(/\s*\(.*\)$/, ''); });
+        [].slice.call(ex.children, 2).forEach(function (n) { n.remove(); });
+        lock(ex, heads);
+      }
       res.appendChild(ex);
     }
     var note = cfg.closeness ? cfg.closeness(ranked) : '';
     if (note) res.appendChild(el('p', 'q-note', note));
     var cta = el('div', 'q-cta');
-    cta.innerHTML = '<h2>' + cfg.cta.title + '</h2><p>' + cfg.cta.text + '</p><a class="btn btn-main" href="' + cfg.cta.href + '">' + cfg.cta.button + '</a>' +
+    var ctaTitle = T ? T.ctaTitle : cfg.cta.title, ctaText = T ? (cfg.cta.teaserText || T.ctaText) : cfg.cta.text;
+    cta.innerHTML = '<h2>' + ctaTitle + '</h2><p>' + ctaText + '</p><a class="btn btn-main" href="' + cfg.cta.href + '">' + cfg.cta.button + '</a>' +
       (cfg.cta.more ? '<a class="q-more" href="' + cfg.cta.more[1] + '">' + cfg.cta.more[0] + '</a>' : '');
     res.appendChild(cta);
     res.appendChild(el('p', 'q-fine', cfg.disclaimer));
